@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuroscrolling: Defensa de la Atención</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <section class="hero-card">
+      <div>
+        <p class="eyebrow">Mini juego web • HTML + CSS + JS</p>
+        <h1>Neuroscrolling</h1>
+        <p class="subtitle">Defiende tu atención de reels, notificaciones, sludge content y anuncios disfrazados.</p>
+      </div>
+      <div class="brain-badge">🧠</div>
+    </section>
+
+    <section class="canvas-wrap">
+      <canvas id="gameCanvas" width="960" height="540" aria-label="Juego Neuroscrolling"></canvas>
+
+      <div id="startScreen" class="overlay">
+        <div class="panel">
+          <div class="big-icon">📱🧠</div>
+          <h2>Defense of Attention</h2>
+          <p>
+            Los estímulos digitales vienen en oleadas. Usa foco, pausas conscientes y modo avión
+            para evitar que capturen tu atención.
+          </p>
+          <div class="how-to">
+            <span><strong>Mouse / dedo:</strong> apunta</span>
+            <span><strong>Clic / toque:</strong> disparo manual</span>
+            <span><strong>1, 2, 3:</strong> habilidades</span>
+          </div>
+          <button id="startBtn" class="primary-btn">Jugar</button>
+        </div>
+      </div>
+
+      <div id="upgradeScreen" class="overlay hidden">
+        <div class="panel wide">
+          <p class="eyebrow">Sinapsis de mejora</p>
+          <h2>Elige una estrategia</h2>
+          <p>Entre cada oleada puedes fortalecer una función cognitiva.</p>
+          <div id="upgradeCards" class="upgrade-grid"></div>
+        </div>
+      </div>
+
+      <div id="endScreen" class="overlay hidden">
+        <div class="panel">
+          <div id="endIcon" class="big-icon">✨</div>
+          <h2 id="endTitle">Fin</h2>
+          <p id="endText">Resultado</p>
+          <button id="restartBtn" class="primary-btn">Volver a jugar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="hud">
+      <div class="stat-card">
+        <span>Atención</span>
+        <strong id="attentionText">100</strong>
+      </div>
+      <div class="stat-card">
+        <span>Wave</span>
+        <strong id="waveText">1</strong>
+      </div>
+      <div class="stat-card">
+        <span>Foco</span>
+        <strong id="focusText">20</strong>
+      </div>
+      <div class="stat-card">
+        <span>Fatiga</span>
+        <strong id="fatigueText">0%</strong>
+      </div>
+    </section>
+
+    <section class="abilities">
+      <button id="abilityFocus" class="ability-btn">
+        <span class="key">1</span>
+        <strong>Modo Focus</strong>
+        <small>Daño x2</small>
+      </button>
+      <button id="abilityPause" class="ability-btn">
+        <span class="key">2</span>
+        <strong>Pausa consciente</strong>
+        <small>Congela estímulos</small>
+      </button>
+      <button id="abilityAirplane" class="ability-btn">
+        <span class="key">3</span>
+        <strong>Modo avión</strong>
+        <small>Borra notificaciones</small>
+      </button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
