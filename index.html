@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Neuroscrolling: Defensa de la Atención</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -10,9 +10,11 @@
   <main class="game-shell">
     <section class="hero-card">
       <div>
-        <p class="eyebrow">Mini juego web • HTML + CSS + JS</p>
+        <p class="eyebrow">Mini juego web • Neuroscrolling</p>
         <h1>Neuroscrolling</h1>
-        <p class="subtitle">Defiende tu atención de reels, notificaciones, sludge content y anuncios disfrazados.</p>
+        <p class="subtitle">
+          Dispara manualmente, administra la dopamina y evita que la fatiga mental llegue al tope.
+        </p>
       </div>
       <div class="brain-badge">🧠</div>
     </section>
@@ -25,23 +27,25 @@
           <div class="big-icon">📱🧠</div>
           <h2>Defense of Attention</h2>
           <p>
-            Los estímulos digitales vienen en oleadas. Usa foco, pausas conscientes y modo avión
-            para evitar que capturen tu atención.
+            Toca o haz clic para disparar. Si la dopamina sube mucho, disparas más rápido por un tiempo,
+            pero después viene el bajón y aumenta la fatiga mental.
           </p>
+
           <div class="how-to">
-            <span><strong>Mouse / dedo:</strong> apunta</span>
-            <span><strong>Clic / toque:</strong> disparo manual</span>
+            <span><strong>Toca/clic:</strong> disparar</span>
             <span><strong>1, 2, 3:</strong> habilidades</span>
+            <span><strong>☕ / 🥤:</strong> baja fatiga breve</span>
           </div>
+
           <button id="startBtn" class="primary-btn">Jugar</button>
         </div>
       </div>
 
       <div id="upgradeScreen" class="overlay hidden">
         <div class="panel wide">
-          <p class="eyebrow">Sinapsis de mejora</p>
+          <p class="eyebrow">Plasticidad entre oleadas</p>
           <h2>Elige una estrategia</h2>
-          <p>Entre cada oleada puedes fortalecer una función cognitiva.</p>
+          <p>Fortalece tu sistema atencional antes de que el algoritmo cambie el escenario.</p>
           <div id="upgradeCards" class="upgrade-grid"></div>
         </div>
       </div>
@@ -56,40 +60,69 @@
       </div>
     </section>
 
+    <section class="meter-row">
+      <div class="meter-card">
+        <div class="meter-label">
+          <span>Dopamina</span>
+          <strong id="dopamineText">0%</strong>
+        </div>
+        <div class="meter">
+          <div id="dopamineBar" class="meter-fill dopamine"></div>
+        </div>
+        <small id="dopamineStatus">Estable</small>
+      </div>
+
+      <div class="meter-card">
+        <div class="meter-label">
+          <span>Fatiga mental</span>
+          <strong id="fatigueText">0%</strong>
+        </div>
+        <div class="meter">
+          <div id="fatigueBar" class="meter-fill fatigue"></div>
+        </div>
+        <small id="fatigueStatus">Controlada</small>
+      </div>
+    </section>
+
     <section class="hud">
       <div class="stat-card">
         <span>Atención</span>
         <strong id="attentionText">100</strong>
       </div>
+
       <div class="stat-card">
-        <span>Wave</span>
-        <strong id="waveText">1</strong>
+        <span>Oleada</span>
+        <strong id="waveText">1/5</strong>
       </div>
+
+      <div class="stat-card">
+        <span>Eliminados</span>
+        <strong id="killsText">0/20</strong>
+      </div>
+
       <div class="stat-card">
         <span>Foco</span>
-        <strong id="focusText">20</strong>
-      </div>
-      <div class="stat-card">
-        <span>Fatiga</span>
-        <strong id="fatigueText">0%</strong>
+        <strong id="focusText">0</strong>
       </div>
     </section>
 
     <section class="abilities">
-      <button id="abilityFocus" class="ability-btn">
+      <button id="abilityDopamine" class="ability-btn">
         <span class="key">1</span>
-        <strong>Modo Focus</strong>
-        <small>Daño x2</small>
+        <strong>Burst de Dopamina</strong>
+        <small>Disparo rápido, luego bajón</small>
       </button>
-      <button id="abilityPause" class="ability-btn">
+
+      <button id="abilityMindfulness" class="ability-btn">
         <span class="key">2</span>
-        <strong>Pausa consciente</strong>
-        <small>Congela estímulos</small>
+        <strong>Mindfulness</strong>
+        <small>Baja fatiga y ralentiza</small>
       </button>
-      <button id="abilityAirplane" class="ability-btn">
+
+      <button id="abilitySelective" class="ability-btn">
         <span class="key">3</span>
-        <strong>Modo avión</strong>
-        <small>Borra notificaciones</small>
+        <strong>Atención selectiva</strong>
+        <small>Más precisión y crítico</small>
       </button>
     </section>
   </main>
